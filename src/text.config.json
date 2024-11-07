@@ -1,0 +1,28 @@
+{
+  "mainHeading": "FULL-CYCLE EVENT AGENCY",
+  "circleText": "showreel",
+  "routes": [
+    {
+      "name": "Who?",
+      "heading": "We make gifting and celebrating better",
+      "text": "So you can show up for every meaningful occasion, milestone, and moment.",
+      "bgColor": "#b8cedc",
+      "textColor": "#184363"
+    },
+    {
+      "name": "Where?",
+      "heading": "Lorem ipsum dolor, sit amet consectetur adipisicing",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.",
+      "bgColor": "#c9da8f",
+      "textColor": "#1C471F"
+    },
+    {
+      "name": "What?",
+      "heading": "Lorem ipsum dolor, sit amet consectetur adipisicing",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque.",
+      "bgColor": "#fedf6f",
+      "textColor": "#4A411E"
+    }
+  ]
+ 
+}
