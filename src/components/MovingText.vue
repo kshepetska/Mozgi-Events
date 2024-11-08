@@ -1,41 +1,27 @@
 <template>
   <div class="text-container">
-    <img :src="imageSrc" class="diagonal-image" ref="image1" alt="Scrolling Text Line 1" />
-
-    <img :src="imageSrc" class="diagonal-image mirrored" ref="image2" alt="Scrolling Text Line 2" />
+    <span class="diagonal-text" ref="text1">
+      FULL-CYCLE EVENT AGENCY FULL-CYCLE EVENT AGENCY FULL-CYCLE EVENT AGENCY FULL-CYCLE EVENT
+      AGENCY FULL-CYCLE EVENT AGENCY
+    </span>
+    <span class="diagonal-text mirrored" ref="text2">
+      FULL-CYCLE EVENT AGENCY FULL-CYCLE EVENT AGENCY FULL-CYCLE EVENT AGENCY FULL-CYCLE EVENT
+      AGENCY FULL-CYCLE EVENT AGENCY
+    </span>
   </div>
 </template>
 
 <script>
-import { ref, onMounted } from 'vue'
-import { gsap } from 'gsap'
-import imageSrc from '@/assets/line-image.png'
+import { ref } from 'vue'
 
 export default {
   setup() {
-    const image1 = ref(null)
-    const image2 = ref(null)
-
-    /* onMounted(() => {
-      gsap.to(image1.value, {
-        x: '-100vh',
-        duration: 8,
-        repeat: -1,
-        ease: 'linear',
-      })
-
-      gsap.to(image2.value, {
-        x: '100vh',
-        duration: 8,
-        repeat: -1,
-        ease: 'linear',
-      })
-    }) */
+    const text1 = ref(null)
+    const text2 = ref(null)
 
     return {
-      image1,
-      image2,
-      imageSrc,
+      text1,
+      text2,
     }
   },
 }
@@ -45,20 +31,56 @@ export default {
 .text-container {
   overflow: hidden;
   position: relative;
-  width: 100vw;
-  height: 100vh;
+  width: 200vw;
+  height: 200vh;
+  margin: 0 auto;
+  transform: rotate(-25deg);
 }
 
-.diagonal-image {
+.diagonal-text {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
+  font-family: 'Giga Italic';
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 57.2px;
+  text-align: center;
+  animation: scrollText 30s linear infinite;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 0.4px #373737;
+  display: inline-block;
+  width: max-content;
 }
 
 .mirrored {
-  transform: scaleY(-1) scaleX(-1);
+  animation: scrollTextReversed 30s linear infinite;
+}
+
+.diagonal-text:nth-of-type(1) {
+  top: 0;
+  left: 0;
+}
+
+.diagonal-text:nth-of-type(2) {
+  top: 60px;
+  left: 0;
+}
+
+@keyframes scrollText {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scrollTextReversed {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }
 </style>

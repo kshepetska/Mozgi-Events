@@ -1,18 +1,25 @@
 <template>
   <div>
-    <div class="corner-text left-center" @click="navigateToSection('what')">where?</div>
-    <div class="corner-text right-center" @click="navigateToSection('where')">what?</div>
-    <div class="corner-text left-bottom" @click="navigateToSection('who')">who?</div>
+    <div class="corner-text left-center" @click="navigateToSection('where')">{{ $t('Where') }}</div>
+    <div class="corner-text right-center" @click="navigateToSection('what')">{{ $t('What') }}</div>
+    <div class="corner-text left-bottom" @click="navigateToSection('who')">{{ $t('Who') }}</div>
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 const router = useRouter()
 
-const navigateToSection = (section: string) => {
+const navigateToSection = (section) => {
   router.push(`/${section}`)
+}
+</script>
+
+<script>
+export default {
+  name: 'LandingLinks',
 }
 </script>
 
@@ -24,6 +31,26 @@ const navigateToSection = (section: string) => {
   color: #000000;
   cursor: pointer;
   z-index: 3;
+  display: inline-block;
+}
+
+.corner-text::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.corner-text:hover {
+  color: white;
+}
+
+.corner-text:hover::after {
+  width: 100%;
 }
 
 .left-center {
@@ -42,7 +69,7 @@ const navigateToSection = (section: string) => {
 
 .left-bottom {
   bottom: 20px;
-  left: 50%;
+  transform: translateX(-50%);
   transform-origin: bottom center;
 }
 </style>
